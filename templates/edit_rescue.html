@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Rescue Team</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Edit Rescue Team</h1>
+
+<form action="/update_rescue" method="POST">
+
+    <input type="hidden" name="id" value="{{ team[0] }}">
+
+    <label>Team Name:</label>
+    <input type="text" name="team_name" value="{{ team[1] }}">
+    <br><br>
+
+    <label>Leader:</label>
+    <input type="text" name="leader" value="{{ team[2] }}">
+    <br><br>
+
+    <label>Contact:</label>
+    <input type="text" name="contact" value="{{ team[3] }}">
+    <br><br>
+
+    <label>Location:</label>
+    <input type="text" name="location" value="{{ team[4] }}">
+    <br><br>
+
+    <button type="submit">Update Rescue Team</button>
+
+</form>
+
+</body>
+</html>

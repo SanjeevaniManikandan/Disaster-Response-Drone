@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disaster Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>Disaster Management</h2>
+
+<a href="/">Home</a> |
+<a href="/dashboard">Dashboard</a> |
+<a href="/disaster">Disaster List</a>
+
+<hr>
+
+<a href="/dashboard">
+    <button>Dashboard</button>
+</a>
+
+<br><br>
+
+<form action="/add_disaster" method="POST">
+    <input type="text" name="type" placeholder="Disaster Type" required>
+    <input type="text" name="location" placeholder="Location" required>
+    <input type="text" name="severity" placeholder="Severity" required>
+    <input type="text" name="description" placeholder="Description" required>
+
+    <button type="submit">Add Disaster</button>
+</form>
+<form action="/search" method="GET">
+
+    <input
+        type="text"
+        name="keyword"
+        placeholder="Search by Type or Location">
+
+    <button type="submit">
+        Search
+    </button>
+
+</form>
+
+<br>
+
+<br>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Location</th>
+        <th>Severity</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+
+    <tbody>
+    {% for disaster in disasters %}
+    <tr>
+        <td>{{ disaster[0] }}</td>
+        <td>{{ disaster[1] }}</td>
+        <td>{{ disaster[2] }}</td>
+        <td>{{ disaster[3] }}</td>
+        <td>{{ disaster[4] }}</td>
+
+        <td>
+            <a href="/edit_disaster/{{ disaster[0] }}">
+                <button type="button">Edit</button>
+            </a>
+
+            <a href="/delete_disaster/{{ disaster[0] }}">
+                <button type="button">Delete</button>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+
+</body>
+</html>

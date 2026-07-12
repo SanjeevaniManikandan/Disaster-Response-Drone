@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Drones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Drone List</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Drone Name</th>
+        <th>Model</th>
+        <th>Status</th>
+        <th>Battery</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+
+    {% for drone in drones %}
+    <tr>
+        <td>{{ drone[0] }}</td>
+        <td>{{ drone[1] }}</td>
+        <td>{{ drone[2] }}</td>
+        <td>{{ drone[3] }}</td>
+        <td>{{ drone[4] }}</td>
+
+        <td>
+            <a href="/edit_drone/{{ drone[0] }}">
+                <button>Edit</button>
+            </a>
+        </td>
+
+        <td>
+            <a href="/delete_drone/{{ drone[0] }}"
+               onclick="return confirm('Are you sure you want to delete this drone?')">
+                <button>Delete</button>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<br>
+
+<a href="/drone">
+    <button>Back</button>
+</a>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>Disaster Response Drone Dashboard</h1>
+
+<h2>Total Disasters : {{ disaster_count }}</h2>
+
+<h2>Total Drones : {{ drone_count }}</h2>
+
+<h2>Total Rescue Teams : {{ rescue_count }}</h2>
+
+<h2>Total Drone Assignments : {{ assignment_count }}</h2>
+
+<br>
+
+<a href="/">
+    <button>Home</button>
+</a>
+
+</body>
+</html>
